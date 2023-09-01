@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const handleNavigateToBlog = () => {
+        // Redirect to the blog.html page
+        window.location.href = 'blog.html';
+    };
+
+    // Event listener for the "Home" button on the blog page
+    const blogBtn = document.getElementById('blogBtn');
+    if (blogBtn) {
+        blogBtn.addEventListener('click', handleNavigateToBlog);
+    }
+
+    const handleNavigateToHome =()=>{
+        window.location.href = 'index.html';
+    }
+
+    const homeBtn = document.getElementById('homeBtn');
+    if (homeBtn) {
+        homeBtn.addEventListener('click', handleNavigateToHome);
+    }
+
     const handleSortByViews = () => {
         const cardContainer = document.getElementById('card-container');
         const cards = Array.from(cardContainer.children);
@@ -6,10 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const sortedCards = cards.sort((a, b) => {
             const viewsA = parseInt(a.querySelector('.text-gray-400.text-sm').textContent);
             const viewsB = parseInt(b.querySelector('.text-gray-400.text-sm').textContent);
-            return viewsB - viewsA; // Sort in descending order
+            return viewsB - viewsA; 
         });
 
-        cardContainer.innerHTML = ''; // Clear the container
+        cardContainer.innerHTML = ''; 
         sortedCards.forEach(card => cardContainer.appendChild(card));
     };
 
@@ -61,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             noDataDiv.classList.add();
             const noDataImage = document.createElement('img');
             noDataImage.classList.add()
-            noDataImage.src = './images/Icon.png'; // Replace with the actual image path
+            noDataImage.src = './images/Icon.png'; 
             noDataImage.alt = 'No Data Available';
             noDataDiv.appendChild(noDataImage);
             cardContainer.appendChild(noDataDiv);
@@ -115,10 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
     handleCategory()
     handleLoadVideos("1000")
 })
-
-
-
-
 
 
 
