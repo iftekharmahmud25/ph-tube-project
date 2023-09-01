@@ -78,13 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
         cardContainer.innerHTML = '';
         if (data.data.length === 0) {
             const noDataDiv = document.createElement('div');
-            noDataDiv.classList.add();
+             noDataDiv.classList.add('flex', 'flex-col-reverse' )
             const noDataImage = document.createElement('img');
-            noDataImage.classList.add()
-            noDataImage.src = './images/Icon.png'; 
-            noDataImage.alt = 'No Data Available';
+            noDataImage.src = './images/Icon.png' ; 
+            noDataImage.alt = 'No Data Available' ;
+            noDataDiv.innerHTML =    `<h1 class="font-bold text-2xl">Oops!! Sorry, There is no content here </h1>`
             noDataDiv.appendChild(noDataImage);
+            
+            
             cardContainer.appendChild(noDataDiv);
+            
         } else {
             data.data.forEach((videos) => {
                 const div = document.createElement('div');
